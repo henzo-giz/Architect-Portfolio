@@ -186,7 +186,7 @@ export default function App() {
         {/* Real-time background imagery mask */}
         <div id="hero-imagery-mask" className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-50">
           <img
-            src="./assets/.aistudio/hero_structure_1782118926918.jpg"
+            src="/assets/.aistudio/hero_structure_1782118926918.jpg"
             alt="Minimalist Twilight Brutalist Structure"
             className="w-full h-full object-cover scale-105 filter blur-sm"
             referrerPolicy="no-referrer"
@@ -225,7 +225,7 @@ export default function App() {
               <button
                 onClick={() => navigateToSection("projects")}
                 id="hero-explore-button"
-                className="px-8 py-4 rounded-none bg-zinc-900 border border-white/20 text-white hover:bg-white hover:text-black hover:border-white font-mono tracking-[0.2em] flex items-center justify-center gap-2 transition-all cursor-pointer group/btn"
+                className="px-8 py-4 rounded-none bg-zinc-900 border border-white/20 text-white hover:bg-white hover:text-black hover:border-white font-mono tracking-[0.2em] flex items-center jus[...]
               >
                 <span>EXPLORE ARCHIVE [01]</span>
                 <ArrowRight className="w-4 h-4 text-current group-hover:translate-x-1 transition-transform" />
@@ -234,7 +234,7 @@ export default function App() {
               <button
                 onClick={() => navigateToSection("consultation")}
                 id="hero-schedule-button"
-                className="px-8 py-4 rounded-none bg-black border border-white/10 text-white/60 hover:text-white hover:border-white/30 tracking-[0.2em] flex items-center justify-center gap-2 transition-all cursor-pointer"
+                className="px-8 py-4 rounded-none bg-black border border-white/10 text-white/60 hover:text-white hover:border-white/30 tracking-[0.2em] flex items-center justify-center gap-2 transitio[...]
               >
                 <span>BOOK BRIEF SESSION [03]</span>
               </button>
@@ -348,7 +348,7 @@ export default function App() {
 
           {/* Quick statement on 3D Specs */}
           <div className="mt-12 bg-black/60 rounded-none border border-white/5 p-4 md:p-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-white/40">
-            <span className="flex items-center gap-2 font-light"><LayoutGrid className="w-4 h-4 text-white/30 shrink-0" /> SHOWING {filteredProjects.length} OUT OF {PROJECTS.length} SPECTRAL SPEC RECORDS.</span>
+            <span className="flex items-center gap-2 font-light"><LayoutGrid className="w-4 h-4 text-white/30 shrink-0" /> SHOWING {filteredProjects.length} OUT OF {PROJECTS.length} SPECTRAL SPEC RECO[...]
             <span className="font-light">DATA ENHANCED VIA THREE.JS AND WEBGL</span>
           </div>
 
