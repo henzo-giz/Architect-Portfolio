@@ -835,8 +835,96 @@ div#root:nth-of-type(1) > div#main-portfolio-root.light > section#hero:nth-of-ty
   transform: translateY(1px) scale(0.98) !important;
 }
 
+/* Focus Mode styles */
+/* CSS Selector 1: Modal specifications box body text and background color */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) {
+  color: #121214 !important;
+  background-color: #faf9f6 !important;
+}
 
+/* CSS Selector 2: Modal specification badge (RENDERED SPEC) background and text color style */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) {
+  background-color: #121214 !important;
+  color: #faf9f6 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
 
+/* CSS Selector 3: Modal wireframe switch button styling */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > button#toggle-wireframe-observatory:nth-of-type(1) {
+  background-color: #121214 !important;
+  color: #faf9f6 !important;
+  border-color: transparent !important;
+}
 
+/* CSS Selector 4: Project card symbiosis-canopy card thumbnail image border and bg style */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#projects:nth-of-type(2) > div:nth-of-type(2) > div#projects-container-grid:nth-of-type(2) > div#project-card-symbiosis-canopy:nth-of-type(4) > div:nth-of-type(4) > img#project-thumbnail-symbiosis-canopy:nth-of-type(1) {
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  background-color: #ffffff !important;
+}
 
+/* CSS Selector 5, 6, and 7: Material selection lists inside Project Details Modal */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1),
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2),
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #121214 !important;
+}
+
+/* CSS Selector 8: Modal Specification box Footer Container styling matches */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(5) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(2) {
+  background-color: #faf9f6 !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  color: rgba(18, 18, 20, 0.6) !important;
+}
+
+/* Broad Light mode fixes for deep-nested child elements in ProjectDetailsModal */
+#main-portfolio-root.light #modal-specs-box h2 {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #modal-specs-box p,
+#main-portfolio-root.light #modal-specs-box .text-white\/60 {
+  color: rgba(18, 18, 20, 0.8) !important;
+}
+
+#main-portfolio-root.light #modal-specs-box span.text-white\/40,
+#main-portfolio-root.light #modal-specs-box .font-mono.text-white\/40 {
+  color: rgba(18, 18, 20, 0.5) !important;
+}
+
+#main-portfolio-root.light #modal-specs-box div.bg-black\/40 {
+  background-color: #f4f4f2 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: rgba(18, 18, 20, 0.85) !important;
+}
+
+#main-portfolio-root.light #modal-specs-box div.bg-black\/40 span {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #modal-specs-box div.bg-black\/40 span.text-white\/30,
+#main-portfolio-root.light #modal-specs-box div.bg-black\/40 svg {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+#main-portfolio-root.light #modal-specs-box div.bg-black\/40 .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root.light #modal-specs-box div.bg-zinc-950\/60,
+#main-portfolio-root.light #modal-specs-box div.bg-zinc-950\/60 * {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #modal-specs-box svg {
+  color: rgba(18, 18, 20, 0.6) !important;
+}
+
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #000000 !important;
+}
 

@@ -22,6 +22,7 @@ function PortfolioViewer2DFallback({ threeDType, color = "#06b6d4", className = 
   const [wireframeMode, setWireframeMode] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const rotationRef = useRef({ x: -0.3, y: 0.4 });
+  const baseRotationX = useRef<number>(-0.3);
   const isDragging = useRef<boolean>(false);
   const previousMouse = useRef({ x: 0, y: 0 });
 
@@ -52,7 +53,9 @@ function PortfolioViewer2DFallback({ threeDType, color = "#06b6d4", className = 
       if (!isDragging.current) {
         const spinSpeed = isHovered ? 0.015 : 0.005;
         rotationRef.current.y += spinSpeed;
-        rotationRef.current.x = -0.3 + Math.sin(tick * 0.4) * 0.05;
+        rotationRef.current.x = baseRotationX.current + Math.sin(tick * 0.4) * 0.05;
+      } else {
+        rotationRef.current.x = baseRotationX.current;
       }
 
       const vertices: { x: number; y: number; z: number }[] = [];
@@ -322,7 +325,7 @@ function PortfolioViewer2DFallback({ threeDType, color = "#06b6d4", className = 
     const deltaX = e.clientX - previousMouse.current.x;
     const deltaY = e.clientY - previousMouse.current.y;
     rotationRef.current.y += deltaX * 0.01;
-    rotationRef.current.x += deltaY * 0.01;
+    baseRotationX.current += deltaY * 0.01;
     previousMouse.current = { x: e.clientX, y: e.clientY };
   };
 
@@ -342,12 +345,13 @@ function PortfolioViewer2DFallback({ threeDType, color = "#06b6d4", className = 
     const deltaX = e.touches[0].clientX - previousMouse.current.x;
     const deltaY = e.touches[0].clientY - previousMouse.current.y;
     rotationRef.current.y += deltaX * 0.015;
-    rotationRef.current.x += deltaY * 0.015;
+    baseRotationX.current += deltaY * 0.015;
     previousMouse.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
   };
 
   const resetRotation = () => {
     rotationRef.current = { x: -0.3, y: 0.4 };
+    baseRotationX.current = -0.3;
   };
 
   return (
@@ -420,6 +424,7 @@ export default function PortfolioViewer3D({ threeDType, color = "#06b6d4", class
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [webglError, setWebglError] = useState<boolean>(false);
   const isDragging = useRef<boolean>(false);
+  const baseRotationX = useRef<number>(0);
   const previousMousePosition = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -703,7 +708,7 @@ export default function PortfolioViewer3D({ threeDType, color = "#06b6d4", class
 
       if (mainGroup) {
         mainGroup.rotation.y += deltaMove.x * 0.01;
-        mainGroup.rotation.x += deltaMove.y * 0.01;
+        baseRotationX.current += deltaMove.y * 0.01;
       }
 
       previousMousePosition.current = { x: e.clientX, y: e.clientY };
@@ -731,7 +736,7 @@ export default function PortfolioViewer3D({ threeDType, color = "#06b6d4", class
 
       if (mainGroup) {
         mainGroup.rotation.y += deltaMove.x * 0.015;
-        mainGroup.rotation.x += deltaMove.y * 0.015;
+        baseRotationX.current += deltaMove.y * 0.015;
       }
 
       previousMousePosition.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
@@ -781,8 +786,11 @@ export default function PortfolioViewer3D({ threeDType, color = "#06b6d4", class
         // Subtle vertical float
         mainGroup.position.y = Math.sin(elapsed * 1.5) * 0.15;
 
-        // Oscillate x rotation slightly
-        mainGroup.rotation.x = Math.sin(elapsed * 0.5) * 0.05;
+        // Oscillate x rotation slightly around user's dragged position!
+        mainGroup.rotation.x = baseRotationX.current + Math.sin(elapsed * 0.5) * 0.05;
+      } else if (isDragging.current && mainGroup) {
+        // Render exact accumulated base rotation to stay responsive during manual drag
+        mainGroup.rotation.x = baseRotationX.current;
       }
 
       // Canopy kinetic waving effect for the grid surface
@@ -852,6 +860,7 @@ export default function PortfolioViewer3D({ threeDType, color = "#06b6d4", class
       groupRef.current.rotation.set(0, 0, 0);
       groupRef.current.position.set(0, 0, 0);
     }
+    baseRotationX.current = 0;
   };
 
   if (webglError) {
