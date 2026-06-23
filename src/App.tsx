@@ -186,7 +186,7 @@ export default function App() {
         {/* Real-time background imagery mask */}
         <div id="hero-imagery-mask" className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-50">
           <img
-            src="/assets/images/hero_structure_1782118926918.jpg"
+            src="./assets/.aistudio/hero_structure_1782118926918.jpg"
             alt="Minimalist Twilight Brutalist Structure"
             className="w-full h-full object-cover scale-105 filter blur-sm"
             referrerPolicy="no-referrer"
