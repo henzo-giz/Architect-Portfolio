@@ -186,7 +186,7 @@ export default function App() {
         {/* Real-time background imagery mask */}
         <div id="hero-imagery-mask" className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-50">
           <img
-            src="/assets/.aistudio/hero_structure_1782118926918.jpg"
+            src="/assets/images/hero_structure_1782118926918.jpg"
             alt="Minimalist Twilight Brutalist Structure"
             className="w-full h-full object-cover scale-105 filter blur-sm"
             referrerPolicy="no-referrer"
@@ -209,7 +209,7 @@ export default function App() {
                 SPEC ARCHIVE // BY {ARCHITECT_PROFILE.name.toUpperCase()}
               </span>
               <h1 className="font-display text-4xl sm:text-6xl md:text-7.5xl font-extrabold text-white tracking-tight leading-[0.95] mt-2">
-                ALGORITHMIC <br />
+                ALGORITHMI <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-450 via-white to-zinc-550">
                   MATERIALITY
                 </span>
