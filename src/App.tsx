@@ -184,14 +184,14 @@ export default function App() {
         className="relative min-h-screen flex items-center justify-center px-6 md:px-12 pt-28 pb-16 overflow-hidden"
       >
         {/* Real-time background imagery mask */}
-        <div id="hero-imagery-mask" className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-50">
+        <div id="hero-imagery-mask" className="absolute inset-0 w-full h-full z-0 overflow-hidden opacity-10">
           <img
             src="/assets/images/hero_structure_1782226835498.jpg"
             alt="Minimalist Twilight Brutalist Structure"
-            className="w-full h-full object-cover scale-105 filter blur-sm"
+            className="w-full h-full object-cover scale-105 filter blur-[1px]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-[#050505]/70 to-[#050505]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-[#050505]/70 to-[#050505] opacity-40" />
         </div>
 
         <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
