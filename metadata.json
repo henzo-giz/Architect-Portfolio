@@ -1,0 +1,6 @@
+{
+  "name": "Elora's Portfolio",
+  "description": "Interactive 3D and architecture portfolio featuring Three.js design renders, modern dark aesthetics, mouse-tracking, and GSAP animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

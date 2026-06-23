@@ -1,0 +1,842 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;450;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Premium Architectural Color Palette updated to Sleek Interface style */
+  --color-zinc-950: #050505;
+  --color-accent-gold: #c5a880;
+}
+
+@layer base {
+  html, body {
+    background-color: #050505;
+    color: #ffffff;
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom Blueprint Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c1c1f;
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+/* Mouse Follower Styling */
+.cursor-follower {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-follower-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.sleek-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Custom Text masking and hover triggers */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  color: transparent;
+}
+
+.text-stroke:hover {
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+/* Hover tilt effect helper */
+.tilt-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+/* Architectural crosshairs */
+.crosshair::before,
+.crosshair::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.crosshair-h::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.crosshair-v::after {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+}
+
+/* ==================== LIGHT MODE PRESET BY ELORA MEAREY ==================== */
+
+#main-portfolio-root.light {
+  background-color: #FAF9F6 !important;
+  color: #1a1a1e !important;
+}
+
+#main-portfolio-root.light ::selection {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #000000 !important;
+}
+
+/* Base custom sections inside light mode */
+#main-portfolio-root.light section {
+  background-color: #FAF9F6 !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root.light .sleek-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.08) 1px, transparent 0) !important;
+}
+
+#main-portfolio-root.light .blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px) !important;
+}
+
+/* Texts */
+#main-portfolio-root.light h1,
+#main-portfolio-root.light h2,
+#main-portfolio-root.light h3,
+#main-portfolio-root.light h4 {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light .text-white:not(#hero-explore-button, #submit-inquiry-button, #book-consultation-button, #hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket, #booking-success-ticket *, #project-details-overlay button, #project-details-overlay button *) {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light .text-white\/90:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.9) !important;
+}
+
+#main-portfolio-root.light .text-white\/80:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.8) !important;
+}
+
+#main-portfolio-root.light .text-white\/75:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.75) !important;
+}
+
+#main-portfolio-root.light .text-white\/70:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.7) !important;
+}
+
+#main-portfolio-root.light .text-white\/65:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.65) !important;
+}
+
+#main-portfolio-root.light .text-white\/60:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.6) !important;
+}
+
+#main-portfolio-root.light .text-white\/50:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.5) !important;
+}
+
+#main-portfolio-root.light .text-white\/45:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *),
+#main-portfolio-root.light .text-white\/40:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.4) !important;
+}
+
+#main-portfolio-root.light .text-white\/30:not(#hero-explore-button *, #submit-inquiry-button *, #book-consultation-button *, #booking-success-ticket *, #project-details-overlay button *) {
+  color: rgba(18, 18, 20, 0.3) !important;
+}
+
+#main-portfolio-root.light .text-zinc-100 {
+  color: #1a1a1e !important;
+}
+
+#main-portfolio-root.light .text-zinc-500 {
+  color: #6b7280 !important;
+}
+
+#main-portfolio-root.light .text-neutral-500 {
+  color: #6b7280 !important;
+}
+
+#main-portfolio-root.light .text-neutral-400 {
+  color: #a3a3a3 !important;
+}
+
+/* Borders */
+#main-portfolio-root.light .border-white\/5,
+#main-portfolio-root.light .border-white\/10,
+#main-portfolio-root.light .border-white\/15,
+#main-portfolio-root.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Background panel / boxes */
+#main-portfolio-root.light .bg-black\/40,
+#main-portfolio-root.light .bg-black\/50,
+#main-portfolio-root.light .bg-black\/60,
+#main-portfolio-root.light .bg-black\/80,
+#main-portfolio-root.light .bg-white\/\[0\.02\],
+#main-portfolio-root.light .bg-white\/5 {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root.light .bg-\[\#0a0a0a\],
+#main-portfolio-root.light .bg-zinc-950,
+#main-portfolio-root.light .bg-[#050505] {
+  background-color: #FAF9F6 !important;
+}
+
+#main-portfolio-root.light .bg-[#050505]\/90 {
+  background-color: rgba(250, 249, 246, 0.9) !important;
+}
+
+#main-portfolio-root.light .bg-[#050505]\/98 {
+  background-color: rgba(250, 249, 246, 0.98) !important;
+}
+
+/* Forms and booking states */
+#main-portfolio-root.light input,
+#main-portfolio-root.light select,
+#main-portfolio-root.light textarea {
+  background-color: #ffffff !important;
+  color: #121214 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+#main-portfolio-root.light input::placeholder,
+#main-portfolio-root.light textarea::placeholder {
+  color: rgba(18, 18, 20, 0.4) !important;
+}
+
+/* Booking Slots */
+#main-portfolio-root.light .bg-zinc-900\/50 {
+  background-color: #FAF9F6 !important;
+}
+
+/* Form inputs on focus */
+#main-portfolio-root.light input:focus,
+#main-portfolio-root.light select:focus,
+#main-portfolio-root.light textarea:focus {
+  border-color: #000000 !important;
+  outline: none !important;
+}
+
+/* Navigation items */
+#main-portfolio-root.light #main-nav-bar {
+  background-color: rgba(250, 249, 246, 0.9) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root.light #main-nav-bar button:not(#desktop-nav-links button),
+#main-portfolio-root.light #main-nav-bar .md\:hidden button {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #main-nav-bar button:not(#desktop-nav-links button):hover,
+#main-portfolio-root.light #main-nav-bar .md\:hidden button:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  color: #000000 !important;
+}
+
+#main-portfolio-root.light #desktop-nav-links button {
+  color: rgba(18, 18, 20, 0.4) !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+#main-portfolio-root.light #desktop-nav-links button:hover,
+#main-portfolio-root.light #desktop-nav-links button.text-white {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #desktop-nav-links span {
+  background-color: #121214 !important;
+  border-color: #121214 !important;
+}
+
+#main-portfolio-root.light #nav-telemetry {
+  border-left-color: rgba(0, 0, 0, 0.1) !important;
+  color: rgba(18, 18, 20, 0.5) !important;
+}
+
+#main-portfolio-root.light #nav-telemetry span.text-white\/80 {
+  color: #121214 !important;
+}
+
+/* Buttons */
+#main-portfolio-root.light #hero-explore-button {
+  background-color: #121214 !important;
+  color: #ffffff !important;
+  border-color: #121214 !important;
+}
+
+#main-portfolio-root.light #hero-explore-button:hover {
+  background-color: transparent !important;
+  color: #121214 !important;
+  border-color: #121214 !important;
+}
+
+#main-portfolio-root.light #hero-explore-button span {
+  color: inherit !important;
+}
+
+#main-portfolio-root.light #hero-explore-button svg {
+  stroke: currentColor !important;
+}
+
+#main-portfolio-root.light #hero-schedule-button {
+  background-color: transparent !important;
+  color: rgba(18, 18, 20, 0.6) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+#main-portfolio-root.light #hero-schedule-button:hover {
+  color: #121214 !important;
+  border-color: #121214 !important;
+}
+
+#main-portfolio-root.light #hero-schedule-button span {
+  color: inherit !important;
+}
+
+#main-portfolio-root.light .accent-gold {
+  color: #b59263 !important;
+}
+
+/* Modals */
+#main-portfolio-root.light #project-details-overlay {
+  background-color: rgba(250, 249, 246, 0.95) !important;
+}
+
+#main-portfolio-root.light #project-details-overlay > div {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #modal-specs-box {
+  background-color: #FAF9F6 !important;
+}
+
+#main-portfolio-root.light #close-modal-button {
+  color: #121214 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#main-portfolio-root.light #close-modal-button:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Contact and consultation logs / success */
+#main-portfolio-root.light #inquiry-success-alert {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+  color: #047857 !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #121214 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Map frame components in AboutSection */
+#main-portfolio-root.light #about .aspect-\[16\/9\] {
+  background-color: #FAF9F6 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#main-portfolio-root.light #about .aspect-\[16\/9\] .bg-\[\#050505\] {
+  background-color: #ffffff !important;
+}
+
+#main-portfolio-root.light #about .aspect-\[16\/9\] .bg-black {
+  background-color: #121214 !important;
+  color: #ffffff !important;
+}
+
+/* Project cards */
+#main-portfolio-root.light .tilt-card {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+
+#main-portfolio-root.light .tilt-card:hover {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.05) !important;
+}
+
+/* Active index dots and active chip/button states */
+#main-portfolio-root.light .bg-white {
+  background-color: #121214 !important;
+}
+
+#main-portfolio-root.light button.bg-white,
+#main-portfolio-root.light .bg-white.text-black,
+#main-portfolio-root.light .bg-white .text-black {
+  color: #ffffff !important;
+}
+
+#main-portfolio-root.light #about-skills-index button:not(.bg-white):hover,
+#main-portfolio-root.light #booking-form button:not(.bg-white):hover {
+  color: #121214 !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hero Section mask */
+#hero-imagery-mask {
+  transition: opacity 0.3s ease;
+}
+
+#main-portfolio-root.light #hero-imagery-mask {
+  opacity: 0.25 !important;
+}
+
+#main-portfolio-root.light #hero-imagery-mask .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, rgba(250, 249, 246, 0.1) 0%, rgba(250, 249, 246, 0.7) 60%, #FAF9F6 100%) !important;
+}
+
+#main-portfolio-root:not(.light) #hero-imagery-mask {
+  opacity: 0.65 !important;
+}
+
+#main-portfolio-root:not(.light) #hero-imagery-mask img {
+  filter: blur(2px) brightness(0.85) contrast(1.1) !important;
+}
+
+#main-portfolio-root:not(.light) #hero-imagery-mask .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0.1) 0%, rgba(5, 5, 5, 0.6) 50%, #050505 100%) !important;
+}
+
+/* Project filters */
+#main-portfolio-root.light #project-filters button {
+  background-color: transparent !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: rgba(18, 18, 20, 0.5) !important;
+}
+
+#main-portfolio-root.light #project-filters button:hover {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #project-filters button[id*="filter-btn-"].bg-white {
+  background-color: #121214 !important;
+  color: #ffffff !important;
+  border-color: #121214 !important;
+}
+
+/* Simulated log files or values */
+#main-portfolio-root.light .bg-\[\#0a0a0a\] {
+  background-color: #FAF9F6 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Footers */
+#main-portfolio-root.light footer.bg-black {
+  background-color: #FAF9F6 !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root.light footer.bg-black .text-white {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light footer.bg-black .text-white\/40,
+#main-portfolio-root.light footer.bg-black .text-zinc-500 {
+  color: rgba(18, 18, 20, 0.4) !important;
+}
+
+#main-portfolio-root.light footer.bg-black a:hover {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light footer.bg-black .rotate-12 {
+  color: rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Custom text stroke hover */
+#main-portfolio-root.light .text-stroke {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.12) !important;
+}
+
+#main-portfolio-root.light .text-stroke:hover {
+  -webkit-text-stroke: 1px #000000 !important;
+}
+
+/* Crosshairs in light-mode */
+#main-portfolio-root.light .crosshair::before,
+#main-portfolio-root.light .crosshair::after {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Forms */
+#main-portfolio-root.light input[type="text"],
+#main-portfolio-root.light input[type="email"],
+#main-portfolio-root.light select,
+#main-portfolio-root.light textarea {
+  background-color: #ffffff !important;
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #submit-inquiry-button,
+#main-portfolio-root.light #book-consultation-button {
+  background-color: #121214 !important;
+  color: #ffffff !important;
+  border-color: #121214 !important;
+}
+
+#main-portfolio-root.light #submit-inquiry-button:hover,
+#main-portfolio-root.light #book-consultation-button:hover {
+  background-color: transparent !important;
+  color: #121214 !important;
+  border-color: #121214 !important;
+}
+
+#main-portfolio-root.light #submit-inquiry-button span,
+#main-portfolio-root.light #book-consultation-button span {
+  color: inherit !important;
+}
+
+#main-portfolio-root.light #submit-inquiry-button svg,
+#main-portfolio-root.light #book-consultation-button svg {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+#main-portfolio-root.light #mobile-nav-panel {
+  background-color: rgba(250, 249, 246, 0.98) !important;
+}
+
+#main-portfolio-root.light #mobile-nav-panel span,
+#main-portfolio-root.light #mobile-nav-panel a,
+#main-portfolio-root.light #mobile-nav-panel button {
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #mobile-nav-panel p.text-white\/40 {
+  color: rgba(18, 18, 20, 0.4) !important;
+}
+
+/* Badges with black background in forms and hero sidebar */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#hero:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1),
+#main-portfolio-root.light span.bg-black,
+#main-portfolio-root.light div.bg-black,
+#main-portfolio-root.light .absolute.bg-black,
+#main-portfolio-root.light span.absolute.bg-black {
+  background-color: #121214 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+#main-portfolio-root.light span.bg-black *,
+#main-portfolio-root.light div.bg-black *,
+#main-portfolio-root.light .absolute.bg-black *,
+#main-portfolio-root.light span.absolute.bg-black * {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Successfully booked ticket block styling in light mode */
+#main-portfolio-root.light #booking-success-ticket {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #121214 !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket .bg-white\/\[0\.02\] {
+  background-color: #FAF9F6 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket span {
+  color: rgba(18, 18, 20, 0.8) !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket span.text-white\/40 {
+  color: rgba(18, 18, 20, 0.45) !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket span.text-white\/80 {
+  color: rgba(18, 18, 20, 0.85) !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket span.text-white\/50 {
+  color: rgba(18, 18, 20, 0.5) !important;
+}
+
+#main-portfolio-root.light #booking-success-ticket span.text-white {
+  color: #10b981 !important;
+}
+
+/* Focus Mode: Target 1 - Studio Location Badge */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#about:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) {
+  background-color: #0b0b0b !important;
+  color: #fbfbff !important;
+}
+
+/* Focus Mode: Target 2 - First Skills progress tracker bar fill */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#about:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div#about-skills-index:nth-of-type(2) > div#skill-bars-list:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) {
+  background-image: none !important;
+  background-color: #000000 !important;
+}
+
+/* Focus Mode: Target 3 - Skill bars list wrapper */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#about:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(3) > div#about-skills-index:nth-of-type(2) > div#skill-bars-list:nth-of-type(2) {
+  /* Implicit adjustments handled by generic rules */
+}
+
+/* Enhancements for all other skill progress bars under light mode */
+#main-portfolio-root.light #skill-bars-list .bg-gradient-to-r {
+  background-image: none !important;
+  background-color: #121214 !important;
+}
+
+#main-portfolio-root.light #skill-bars-list .h-1.5.bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root.light #skill-bars-list .text-white\/10 {
+  color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Focus Mode Style updates - Contact Section */
+/* CSS Selector 1: Consultation Booking Form Top Badge */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#contact:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div#consultation:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+/* CSS Selector 2: Digital Inquiry Form Top Badge */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#contact:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+/* CSS Selector 3: Digital Channels - Studio Telephone Icon Wrapper */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#contact:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div#consultation:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+/* CSS Selector 4: Digital Channels - Local Headquarters Icon Wrapper */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#contact:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div#consultation:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+/* CSS Selector 5: Digital Channels - Direct Email Icon Wrapper */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#contact:nth-of-type(4) > div:nth-of-type(2) > div:nth-of-type(2) > div#consultation:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+/* Focus Mode: Addis Ababa Map Inner Wrapper Selector */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#about:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) {
+  /* Aligned with developer request styling */
+}
+
+/* Focus Mode: Project Details Modal Spec Badge */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) {
+  color: #fafaff !important;
+}
+
+/* Selector 1: Modal - Wireframe switch button */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > button#toggle-wireframe-pavilion:nth-of-type(1) {
+  color: #e5e5ee !important;
+}
+
+/* Selector 2: Project - Spiro Helix Tower Thumbnail Image */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > section#projects:nth-of-type(2) > div:nth-of-type(2) > div#projects-container-grid:nth-of-type(2) > div#project-card-spiro-helix-tower:nth-of-type(2) > div:nth-of-type(4) > img#project-thumbnail-spiro-helix-tower:nth-of-type(1) {
+  background-color: #626161 !important;
+}
+
+/* Selector 3: Modal - Tech list index item 1 label */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) {
+  color: #ffffff !important;
+}
+
+/* Selector 4: Modal - Tech list index item 2 tag span */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1) {
+  /* Optional baseline decoration */
+}
+
+/* Selector 5: Modal - Tech list index item 2 root container */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) {
+  color: #ffffff !important;
+}
+
+/* Selector 6: Modal - Tech list index item 3 root container */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) {
+  color: #ffffff !important;
+}
+
+/* Selector 7: Modal - Tech specifications grid pane second child */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(2) {
+  background-color: #848383 !important;
+  height: 75.5px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+/* Selector 8: Modal - Tech specifications grid pane first child */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(1) {
+  /* Aligned with general layout styling variables */
+}
+
+/* Selector 9: Modal - Tech specifications grid pane second child child span 1 */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(1) {
+  text-align: center !important;
+}
+
+/* Selector 10: Modal - Tech specifications grid pane second child child span 2 */
+div#root:nth-of-type(1) > div#main-portfolio-root:nth-of-type(1) > div#project-details-overlay:nth-of-type(6) > div#modal-specs-box:nth-of-type(2) > div:nth-of-type(2) > span:nth-of-type(2) {
+  /* Aligned with specifications formatting */
+}
+
+/* Light Mode Scrollbar Override */
+.light ::-webkit-scrollbar-track,
+#main-portfolio-root.light ::-webkit-scrollbar-track {
+  background: #FAF9F6 !important;
+}
+
+.light ::-webkit-scrollbar-thumb,
+#main-portfolio-root.light ::-webkit-scrollbar-thumb {
+  background: #d4d4d8 !important;
+}
+
+.light ::-webkit-scrollbar-thumb:hover,
+#main-portfolio-root.light ::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa !important;
+}
+
+/* Selector 11: Hero Explore Button Background */
+div#root:nth-of-type(1) > div#main-portfolio-root:not(.light) > section#hero:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > button#hero-explore-button:nth-of-type(1) {
+  background-color: #080808 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+div#root:nth-of-type(1) > div#main-portfolio-root:not(.light) > section#hero:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > button#hero-explore-button:nth-of-type(1):hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+div#root:nth-of-type(1) > div#main-portfolio-root.light > section#hero:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > button#hero-explore-button:nth-of-type(1) {
+  background-color: #121214 !important;
+  color: #ffffff !important;
+  border-color: #121214 !important;
+}
+div#root:nth-of-type(1) > div#main-portfolio-root.light > section#hero:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > button#hero-explore-button:nth-of-type(1):hover {
+  background-color: transparent !important;
+  color: #121214 !important;
+  border-color: #121214 !important;
+}
+
+/* Animated Button Hover Effects for Light & Dark Modes */
+#hero-explore-button,
+#hero-schedule-button,
+#submit-inquiry-button,
+#book-consultation-button,
+#project-filters button,
+#close-modal-button {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              color 0.25s ease, 
+              border-color 0.25s ease, 
+              box-shadow 0.25s ease-out !important;
+}
+
+#hero-explore-button:hover,
+#hero-schedule-button:hover,
+#submit-inquiry-button:hover,
+#book-consultation-button:hover,
+#project-filters button:hover,
+#close-modal-button:hover {
+  transform: translateY(-2px) scale(1.01) !important;
+}
+
+#main-portfolio-root.light #hero-explore-button:hover,
+#main-portfolio-root.light #hero-schedule-button:hover,
+#main-portfolio-root.light #submit-inquiry-button:hover,
+#main-portfolio-root.light #book-consultation-button:hover,
+#main-portfolio-root.light #project-filters button:hover,
+#main-portfolio-root.light #close-modal-button:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+#main-portfolio-root:not(.light) #hero-explore-button:hover,
+#main-portfolio-root:not(.light) #hero-schedule-button:hover,
+#main-portfolio-root:not(.light) #submit-inquiry-button:hover,
+#main-portfolio-root:not(.light) #book-consultation-button:hover,
+#main-portfolio-root:not(.light) #project-filters button:hover,
+#main-portfolio-root:not(.light) #close-modal-button:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08) !important;
+}
+
+#hero-explore-button:active,
+#hero-schedule-button:active,
+#submit-inquiry-button:active,
+#book-consultation-button:active,
+#project-filters button:active,
+#close-modal-button:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+
+
+
+
+
