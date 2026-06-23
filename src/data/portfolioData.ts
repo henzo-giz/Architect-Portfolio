@@ -23,7 +23,7 @@ export const PROJECTS: Project[] = [
     scale: "250 m²",
     materials: ["Casted Raw Concrete", "Sandblasted Structural Steel", "Frameless Ultra-clear Glass"],
     description: "An open gallery pavilion exploring the architectural capabilities of modular glass-fiber reinforced concrete. The design employs sweeping circular voids, sculptural spiral staircases, and tall lightwells that cast moving sundials of amber light across concrete surfaces. The building functions as an experimental acoustic and light incubator, letting shadows serve as organic internal partition walls.",
-    image: "/assets/images/project_concrete_1782118945751.jpg",
+    image: "/assets/images/project_concrete_1782226852608.jpg",
     threeDType: "pavilion",
     color: "#7c7c7c"
   },
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     scale: "84,000 m²",
     materials: ["Cross-Laminated Timber (CLT) Louvers", "Photovoltaic Smart Glass", "Recycled Titanium Mesh"],
     description: "Spiro Helix is a parametric bio-mimetic mixed-use tower concept that adapts its spiraling skeletal louvers to maximize passive solar shading. The structure employs deep-nested wooden louvers that twist along a parabolic curve, housing vertical urban gardens and micro-climates that cool passing winds. The digital form was developed using custom Grasshopper algorithms that calculate localized heat-load indexes in real time.",
-    image: "/assets/images/project_helix_1782118960917.jpg",
+    image: "/assets/images/project_helix_1782226864419.jpg",
     threeDType: "tower",
     color: "#a4805c"
   },
@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
     scale: "180 m²",
     materials: ["Thermal Double-Skin Smart Glass", "Corrosion-resistant Carbon Steel", "Local Granite Anchors"],
     description: "Perched on a rugged obsidian arctic cliff, Arctic Oculus is a research cabin and stellar observatory designed to withstand sub-zero wind loads. Its crystalline geometry is anchored directly into deep granite beds. A double-insulated heated shell ensures absolute thermal retention, with integrated solar tracking filters that maximize daylighting during winter seasons and block glare during the continuous summer sun.",
-    image: "/assets/images/project_observatory_1782118975280.jpg",
+    image: "/assets/images/project_observatory_1782226880410.jpg",
     threeDType: "observatory",
     color: "#4a6c82"
   },
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     scale: "680 m²",
     materials: ["Steam-bent White Oak Lattice", "Biodegradable Tensile Membrane", "Brass Friction Hinges"],
     description: "Designed for a major public square, this parametric timber canopy replicates micro-shading patterns found in broadleaf forest canopies. The timber grid was simulated in real-time using custom physical particle systems, optimizing the bending limit of local white oak planks. Shafts of morning light filter through the complex mesh, offering respite from intense summer heat.",
-    image: "/assets/images/project_kinetic_1782118991349.jpg",
+    image: "/assets/images/project_kinetic_1782226895863.jpg",
     threeDType: "canopy",
     color: "#bf9368"
   }
